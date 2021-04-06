@@ -11,15 +11,19 @@ function Form(props){
         ]);
         props.setInputText("");
     }
+    const selectHandler=(e)=>{
+    props.setStatus(e.target.value);
+       
+    }
     return (
         <form className="form">
             <input value={props.inputText} onChange={inputTextHandler} type="text" />
             <button className="todo-button"  onClick={submitTodoHandler}>+</button>
             <div className="select"></div>
-            <select name="todo" className="filter-todo">
+            <select   onChange={selectHandler} name="todo" className="filter-todo">
                 <option value="all">All</option>
-                <option value="all">Complelted</option>
-                <option value="all">Uncompleted</option>
+                <option value="Completed">Complelted</option>
+                <option value="Uncompleted">Uncompleted</option>
 
             </select>
         </form>
